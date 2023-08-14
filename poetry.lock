@@ -841,8 +841,7 @@ PyYAML = ">=5.1.0"
 [package.source]
 type = "git"
 url = "https://github.com/omry/omegaconf.git"
-reference = "HEAD"
-resolved_reference = "7dae67e4a3869b584fd6d6408b2f916c176755db"
+reference = "master"
 
 [[package]]
 name = "packaging"
