@@ -24,7 +24,7 @@ RUN curl -fsSL -o go.tar.gz https://go.dev/dl/go1.17.3.linux-${TARGETARCH}.tar.g
     && rm go.tar.gz
 
 RUN python -m venv /opt/venv \
-    && pip install --upgrade pip yq wheel \
+    && pip install --upgrade pip yq wheel git \
     && export PATH=$PATH:/usr/local/go/bin \
     && pip install --editable .[test] \
     && pip install .[gojsonnet]
