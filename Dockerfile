@@ -16,7 +16,8 @@ ENV PATH="/opt/venv/bin:${PATH}"
 RUN apt-get update \
     && apt-get install --no-install-recommends -y \
         curl \
-        build-essential
+        build-essential \
+        git
 
 # Install Go (for go-jsonnet)
 RUN curl -fsSL -o go.tar.gz https://go.dev/dl/go1.17.3.linux-${TARGETARCH}.tar.gz \
@@ -24,7 +25,7 @@ RUN curl -fsSL -o go.tar.gz https://go.dev/dl/go1.17.3.linux-${TARGETARCH}.tar.g
     && rm go.tar.gz
 
 RUN python -m venv /opt/venv \
-    && pip install --upgrade pip yq wheel git \
+    && pip install --upgrade pip yq wheel \
     && export PATH=$PATH:/usr/local/go/bin \
     && pip install --editable .[test] \
     && pip install .[gojsonnet]
