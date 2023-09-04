@@ -6,7 +6,6 @@ on:
       - 'docs/**'
     branches:
       - master
-      - dev
   pull_request:
     paths-ignore:
       - 'docs/**'

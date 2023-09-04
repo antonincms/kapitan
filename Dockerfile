@@ -3,6 +3,8 @@ FROM python:3.8-slim-bullseye AS python-builder
 
 ARG TARGETARCH
 
+USER root
+
 RUN mkdir /kapitan
 WORKDIR /kapitan
 
@@ -17,8 +19,9 @@ RUN apt-get update \
     && apt-get install --no-install-recommends -y \
         curl \
         build-essential \
-        git \
-        default-jre
+        git
+
+RUN apt install -y default-jre
 
 # Install Go (for go-jsonnet)
 RUN curl -fsSL -o go.tar.gz https://go.dev/dl/go1.17.3.linux-${TARGETARCH}.tar.gz \

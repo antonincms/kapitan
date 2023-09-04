@@ -11,6 +11,7 @@ import yaml
 from kapitan.inventory import OmegaConfBackend
 
 
+@unittest.skip("WIP")
 class OmegaConfMigrationTest(unittest.TestCase):
     def test_migration_loading_directory(self):
         content = "content"

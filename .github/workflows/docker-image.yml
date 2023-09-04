@@ -2,10 +2,13 @@
 name: Docker Build and Push
 on:
   push:
-    branches:
-      - master
     paths-ignore:
       - 'docs/**'
+  workflow_run:
+    workflows:
+      - Python Tests
+    types:
+      - completed
 
 jobs:
   build:
